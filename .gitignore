@@ -1,0 +1,10 @@
+**/*.d.ts
+**/*.js
+**/.nyc_output/
+**/.vscode/
+**/bin/
+**/build/
+**/coverage/
+**/lib/
+**/node_modules/
+**/package-lock.json

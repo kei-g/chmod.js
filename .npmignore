@@ -1,0 +1,8 @@
+**/.*
+**/CODE_OF_CONDUCT.md
+**/bin/*.d.ts
+**/build/
+**/coverage/
+**/src/
+**/test/
+**/tsconfig.json
