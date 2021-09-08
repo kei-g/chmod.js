@@ -23,7 +23,7 @@ and configure the package.json; for example, `chmod` after transpile by `tsc`
 }
 ```
 
-[depencency-image]:https://img.shields.io/librariesio/github/kei-g/chmod.js?logo=nodedotjs
+[depencency-image]:https://img.shields.io/librariesio/release/npm/@kei-g/chmod?logo=nodedotjs
 [dependency-url]:https://npmjs.com/package/@kei-g/chmod?activeTab=dependencies
 [github-test-image]:https://img.shields.io/github/workflow/status/kei-g/chmod.js/test/main?label=build%20%26%20test&logo=github
 [github-url]:https://github.com/kei-g/chmod.js
