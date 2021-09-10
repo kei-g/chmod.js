@@ -21,7 +21,6 @@
     "@typescript-eslint/parser": "^4.31.0",
     "chai": "^4.3.4",
     "eslint": "^7.32.0",
-    "mkdirp": "^1.0.4",
     "mocha": "^9.1.1",
     "npm-run-all": "^4.1.5",
     "nyc": "^15.1.0",
@@ -57,9 +56,8 @@
     "url": "https://github.com/kei-g/chmod.js.git"
   },
   "scripts": {
-    "build": "npm-run-all -p clean lint -p build:mkdir build:tsc -p build:terse:* -s build:chmod",
+    "build": "npm-run-all -p clean lint -s build:tsc -p build:terse:* -s build:chmod",
     "build:chmod": "ts-node src/bin/chmod.ts +x bin/chmod.js",
-    "build:mkdir": "mkdirp bin lib",
     "build:terse:bin": "terser build/bin/chmod.js -c -m -o bin/chmod.js --toplevel",
     "build:terse:index": "terser build/index.js -c -m -o index.js --toplevel",
     "build:terse:lib": "terser build/lib/chmod.js -c -m -o lib/chmod.js --toplevel",
