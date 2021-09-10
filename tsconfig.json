@@ -27,8 +27,9 @@
       "node_modules/@types",
     ],
   },
-  "files": [
-    "src/bin/chmod.ts",
-    "src/index.ts",
+  "exclude": [
+  ],
+  "include": [
+    "src",
   ],
 }
