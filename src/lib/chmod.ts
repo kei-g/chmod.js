@@ -243,21 +243,22 @@ const mapperFromTarget = (target: string): Mapper => {
 const modeRE = /(?<target>[ugoa]*)((?<op1>[-+=])(?<perm>[Xrstwx]*|[ugo]))+|(?<op2>[-+=])?(?<oct>[0-7]+)/g
 Object.freeze(modeRE)
 
+const octalMap = {
+  'r': 4,
+  'w': 2,
+  'x': 1,
+} as Record<ModeCharacter, OctalDigit>
+
 const octalNumberFrom = (permissionDigit: ModeCharacter): OctalDigit => {
   console.assert(typeof permissionDigit === 'string')
   console.assert(permissionDigit.length === 1)
-  const map = {
-    'r': 4,
-    'w': 2,
-    'x': 1,
-  } as Record<ModeCharacter, OctalDigit>
-  if (!Object.isFrozen(map)) {
+  if (!Object.isFrozen(octalMap)) {
     for (let i = 0; i < 8; i++)
-      map[i.toString() as ModeCharacter] = i as OctalDigit
-    Object.freeze(map)
+      octalMap[i.toString() as ModeCharacter] = i as OctalDigit
+    Object.freeze(octalMap)
   }
-  console.assert(permissionDigit in map)
-  return map[permissionDigit]
+  console.assert(permissionDigit in octalMap)
+  return octalMap[permissionDigit]
 }
 
 const umaskOf = (permission: string, target: string): number => {
