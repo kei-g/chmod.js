@@ -6,7 +6,7 @@
     "declarationDir": ".",
     "downlevelIteration": true,
     "emitBOM": false,
-    "emitDeclarationOnly": false,
+    "emitDeclarationOnly": true,
     "emitDecoratorMetadata": false,
     "esModuleInterop": true,
     "experimentalDecorators": false,

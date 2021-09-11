@@ -1,6 +1,6 @@
 **/.*
 **/CODE_OF_CONDUCT.md
-**/bin/*.d.ts
+**/bin/
 **/build/
 **/coverage/
 **/src/
