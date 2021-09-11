@@ -30,7 +30,7 @@
     "typescript": "^4.4.2"
   },
   "engines": {
-    "node": ">=16.8.0"
+    "node": ">=14.17.6"
   },
   "homepage": "https://githun.com/kei-g/chmod.js",
   "keywords": [
