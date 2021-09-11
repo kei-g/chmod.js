@@ -234,8 +234,6 @@ const mapperFromTarget = (target: string): Mapper => {
     'o': (oct: OctalDigit) => oct,
     'u': (oct: OctalDigit) => oct << 6,
   }
-  if (!Object.isFrozen(map))
-    Object.freeze(map)
   console.assert(target in map)
   return map[target as keyof typeof map]
 }
