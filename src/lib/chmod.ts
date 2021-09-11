@@ -97,9 +97,10 @@ export class Parser {
           } = mode.groups
           const permission = perm ?? oct
           const operand = perm === undefined ? op2 : op1
-          if (target === undefined
-            || permission === undefined
-            || operand === undefined) {
+          if (permission === undefined
+            || perm !== undefined
+            && (op1 === undefined
+              || target === undefined)) {
             this.#eventEmitter.emit(
               'error',
               new Error(`invalid argument '${arg}'`)
@@ -133,6 +134,7 @@ export class Parser {
               case '-':
                 return mode & ~umask
               case '=':
+              case undefined:
                 return umask
             }
           }
@@ -238,7 +240,7 @@ const mapperFromTarget = (target: string): Mapper => {
   return map[target as keyof typeof map]
 }
 
-const modeRE = /(?<target>[ugoa]*)((?<op1>[-+=])(?<perm>[Xrstwx]*|[ugo]))+|(?<op2>[-+=])(?<oct>[0-7]+)/g
+const modeRE = /(?<target>[ugoa]*)((?<op1>[-+=])(?<perm>[Xrstwx]*|[ugo]))+|(?<op2>[-+=])?(?<oct>[0-7]+)/g
 Object.freeze(modeRE)
 
 const octalNumberFrom = (permissionDigit: ModeCharacter): OctalDigit => {
