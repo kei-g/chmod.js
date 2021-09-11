@@ -1,6 +1,6 @@
+import { EventEmitter } from 'stream'
 import { Stats } from 'fs'
 import { chmodAsync, lstatAsync, readdirAsync } from 'libfsasync'
-import { EventEmitter } from 'stream'
 
 export type AsyncExecutable = {
   executeAsync(): Promise<NodeJS.ErrnoException | true>
@@ -10,24 +10,26 @@ export type AsyncExecutable = {
 type BoundedFunction =
   () => Promise<NodeJS.ErrnoException | true>
 
-class Executor extends EventEmitter implements AsyncExecutable {
+class Executor implements AsyncExecutable {
+  readonly #eventEmitter = new EventEmitter()
+
   constructor(private readonly functions: BoundedFunction[]) {
-    super()
   }
 
   async executeAsync(): Promise<NodeJS.ErrnoException | true> {
     for (const func of this.functions) {
       const err = await func()
       if (err instanceof Error) {
-        this.emit('error', err)
+        this.#eventEmitter.emit('error', err)
         return err
       }
     }
     return true
   }
 
-  on(eventName: 'error', listener: (reason: Error) => void): this {
-    return super.on(eventName, listener)
+  on(eventName: 'error', listener: (reason: Error) => void): Executor {
+    this.#eventEmitter.on(eventName, listener)
+    return this
   }
 }
 
