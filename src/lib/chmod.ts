@@ -1,6 +1,18 @@
+/**
+ * Import Node.js modules.
+ */
 import { EventEmitter } from 'stream'
 import { Stats } from 'fs'
+
+/**
+ * Import library modules.
+ */
 import { chmodAsync, lstatAsync, readdirAsync } from 'libfsasync'
+
+/**
+ * Import local modules.
+ */
+import { MultipleError } from '.'
 
 export type AsyncExecutable = {
   executeAsync(): Promise<NodeJS.ErrnoException | true>
@@ -188,7 +200,7 @@ const chmodRecursiveAsync = async (
       const dirs = await readdirAsync(path)
       if (dirs instanceof Error)
         return dirs
-      const err = (
+      const errors = (
         await Promise.all(
           dirs.map(
             (name: Buffer | string) =>
@@ -199,12 +211,14 @@ const chmodRecursiveAsync = async (
               )
           )
         )
-      ).find(
-        (err: NodeJS.ErrnoException | true) =>
-          err instanceof Error
+      ).filter(
+        (
+          err: NodeJS.ErrnoException | true
+        ): err is NodeJS.ErrnoException => err instanceof Error
       )
-      if (err instanceof Error)
-        return err
+      const error = MultipleError.from(errors)
+      if (error)
+        return error
     }
   return await chmodAsync(
     path,
