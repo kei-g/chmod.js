@@ -1,3 +1,4 @@
+before_install: umask 022
 branches:
   only:
     - main
