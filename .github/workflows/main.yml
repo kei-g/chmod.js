@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ '14.17.6', '16.13.0', '17.0.1' ]
+        node: [ '14.17.6', '16.13.0', '17.1.0' ]
     name: Test on Node.js ${{ matrix.node }}
     steps:
       - uses: actions/checkout@v2
