@@ -1,5 +1,13 @@
 # Change Logs
 
+## Version 1.0.5
+
+- :arrow_up: Packages for development are updated
+  - `@types/node` is upgraded from 16.11.6 to 16.11.7
+  - `@typescript-eslint/eslint-plugin` is upgraded from 5.3.0 to 5.3.1
+  - `@typescript-eslint/parser` is upgraded from 5.3.0 to 5.3.1
+  - `esbuild` is upgraded from 0.13.12 to 0.13.13
+
 ## Version 1.0.4
 
 - :arrow_up: Packages for development are updated
