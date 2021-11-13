@@ -58,7 +58,7 @@
     "build:tsc": "tsc",
     "clean": "rimraf .nyc_output/ bin/ build/ coverage/ index.d.ts index.js lib/",
     "cover": "nyc --check-coverage -r html -r text _mocha",
-    "lint": "eslint src/*.ts src/bin/*.ts src/lib/*.ts",
+    "lint": "eslint src/**/*.ts",
     "postbuild:chmod": "ts-node src/bin/chmod.ts +x index.js",
     "postbuild:rimraf": "rimraf bin/",
     "postpublish": "run-s clean",
