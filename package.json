@@ -10,7 +10,7 @@
     "url": "https://github.com/kei-g/chmod.js/issues"
   },
   "dependencies": {
-    "libfsasync": "^1.0.1"
+    "libfsasync": "^1.0.4"
   },
   "description": "CLI for changing file permissions",
   "devDependencies": {
