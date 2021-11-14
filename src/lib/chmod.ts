@@ -241,8 +241,8 @@ const isModeCharacter = (value: unknown): value is ModeCharacter =>
   )
 
 const mapperFromTarget = (target: string): Mapper => {
-  console.assert(typeof target === 'string')
-  console.assert(target.length <= 1)
+  console.assert(typeof target === 'string', `mapperFromTarget: 'target' must be a string, but ${typeof target}`)
+  console.assert(target.length <= 1, `mapperFromTarget: 'target.length' must be less than 2, but ${target.length}`)
   const map = {
     'a': (oct: OctalDigit) => oct << 6 | oct << 3 | oct,
     '': (oct: OctalDigit) => oct << 6 | oct << 3 | oct,
@@ -250,7 +250,7 @@ const mapperFromTarget = (target: string): Mapper => {
     'o': (oct: OctalDigit) => oct,
     'u': (oct: OctalDigit) => oct << 6,
   }
-  console.assert(target in map)
+  console.assert(target in map, `mapperFromTarget: ${target} must be in 'map'`)
   return map[target as keyof typeof map]
 }
 
@@ -264,22 +264,22 @@ const octalMap = {
 } as Record<ModeCharacter, OctalDigit>
 
 const octalNumberFrom = (permissionDigit: ModeCharacter): OctalDigit => {
-  console.assert(typeof permissionDigit === 'string')
-  console.assert(permissionDigit.length === 1)
+  console.assert(typeof permissionDigit === 'string', `octalNumberFrom: 'permissionDigit' must be a string, but ${typeof permissionDigit}`)
+  console.assert(permissionDigit.length === 1, `octalNumberFrom: 'permissionDigit.length' must be 1, but ${permissionDigit.length}`)
   if (!Object.isFrozen(octalMap)) {
     for (let i = 0; i < 8; i++)
       octalMap[i.toString() as ModeCharacter] = i as OctalDigit
     Object.freeze(octalMap)
   }
-  console.assert(permissionDigit in octalMap)
+  console.assert(permissionDigit in octalMap, `octalNumberFrom: ${permissionDigit} must be in 'octalMap'`)
   return octalMap[permissionDigit]
 }
 
 const umaskOf = (permission: string, target: string): number => {
-  console.assert(typeof permission === 'string')
-  console.assert(typeof target === 'string')
+  console.assert(typeof permission === 'string', `umaskOf: 'permission' must be a string, but ${typeof permission}`)
+  console.assert(typeof target === 'string', `umaskOf: 'target' must be a string, but ${typeof target}`)
   const mapper = mapperFromTarget(target)
-  console.assert(typeof mapper === 'function')
+  console.assert(typeof mapper === 'function', `umaskOf: 'mapper' must be a function, but ${typeof mapper}`)
   return permission.split('')
     .filter(isModeCharacter)
     .map(octalNumberFrom)
