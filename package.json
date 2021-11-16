@@ -56,7 +56,7 @@
     "build": "npm-run-all -p clean lint -p build:* -p postbuild:*",
     "build:bundle": "esbuild src/bin/chmod.ts --bundle --external:libfsasync --minify --outfile=index.js --platform=node",
     "build:tsc": "tsc",
-    "clean": "rimraf .nyc_output/ bin/ build/ coverage/ index.d.ts index.js lib/",
+    "clean": "rimraf .nyc_output/ bin/ coverage/ index.d.ts index.js lib/",
     "cover": "nyc --check-coverage -r html -r text _mocha",
     "lint": "eslint src/**/*.ts",
     "postbuild:chmod": "ts-node src/bin/chmod.ts +x index.js",

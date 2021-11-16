@@ -17,7 +17,6 @@
     "moduleResolution": "node",
     "newLine": "lf",
     "noImplicitAny": true,
-    "outDir": "build",
     "pretty": true,
     "removeComments": false,
     "strict": true,
