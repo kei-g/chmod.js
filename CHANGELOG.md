@@ -1,5 +1,23 @@
 # Change Logs
 
+## Version 1.0.6
+
+- :memo: CONTRIBUTING.md is added
+- :robot: Dependabot is installed
+- :loud_souond: Description are added to assertion
+- :green_heart: Node.js versions are added for CI
+  - 12.x to GitHub CI and Travis CI
+  - 16.x to Travis CI
+- :arrow_up: Packages are bumped
+  - `libfsasync` is bumped from 1.0.1 to 1.0.5
+  - `@types/node` is bumped from 16.11.7 to 16.11.11
+  - `@typescript-eslint/eslint-plugin` is bumped from 5.3.1 to 5.5.0
+  - `@typescript-eslint/parser` is bumped from 5.3.1 to 5.5.0
+  - `esbuild` is bumped from 0.13.13 to 0.14.2
+  - `eslint` is bumped from 8.2.0 to 8.4.0
+  - `typescript` is bumped from 4.4.4 to 4.5.2
+- :package: URL of repository is simplified
+
 ## Version 1.0.5
 
 - :arrow_up: Packages for development are updated
