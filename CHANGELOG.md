@@ -4,7 +4,7 @@
 
 - :memo: CONTRIBUTING.md is added
 - :robot: Dependabot is installed
-- :loud_souond: Description are added to assertion
+- :loud_sound: Description are added to assertion
 - :green_heart: Node.js versions are added for CI
   - 12.x to GitHub CI and Travis CI
   - 16.x to Travis CI
