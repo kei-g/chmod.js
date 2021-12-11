@@ -53,15 +53,17 @@
   },
   "repository": "github:kei-g/chmod.js",
   "scripts": {
-    "build": "npm-run-all -p clean lint -p build:* -p postbuild:*",
+    "build": "run-p build:*",
     "build:bundle": "esbuild src/bin/chmod.ts --bundle --external:libfsasync --minify --outfile=index.js --platform=node --target=ES2015",
     "build:tsc": "tsc",
     "clean": "rimraf .nyc_output/ bin/ coverage/ index.d.ts index.js lib/",
     "cover": "nyc --check-coverage -r html -r text _mocha",
     "lint": "eslint src/**/*.ts",
+    "postbuild": "run-p postbuild:*",
     "postbuild:chmod": "ts-node src/bin/chmod.ts +x index.js",
     "postbuild:rimraf": "rimraf bin/",
     "postpublish": "run-s clean",
+    "prebuild": "run-p clean lint",
     "prepublishOnly": "run-s build",
     "start": "ts-node src/bin/chmod.ts",
     "test": "run-p cover lint"
