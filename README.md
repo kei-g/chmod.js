@@ -23,6 +23,18 @@ and configure the package.json; for example, `chmod` after transpile by `tsc`
 }
 ```
 
+## Lincense
+
+The scripts and documentation in this project are released under the [BSD-3-Clause License](https://github.com/kei-g/chmod.js/blob/main/LICENSE)
+
+## Contributions
+
+Contributions are welcome! See [Contributor's Guide](https://github.com/kei-g/chmod.js/blob/main/CONTRIBUTING.md)
+
+### Code of Conduct
+
+:clap: Be nice. See [our code of conduct](https://github.com/kei-g/chmod.js/blob/main/CODE_OF_CONDUCT.md)
+
 [depencency-image]:https://img.shields.io/librariesio/release/npm/@kei-g/chmod?logo=nodedotjs
 [dependency-url]:https://npmjs.com/package/@kei-g/chmod?activeTab=dependencies
 [github-test-image]:https://github.com/kei-g/chmod.js/actions/workflows/main.yml/badge.svg?branch=main
