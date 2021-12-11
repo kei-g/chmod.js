@@ -1,6 +1,6 @@
 # chmod.js [![license][license-image]][license-url] [![npm][npm-image]][npm-url]
 
-[![coverage][nyc-cov-image]][github-url] [![dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url] [![github][github-test-image]][github-url] [![travis][travis-image]][travis-url]
+[![coverage][nyc-cov-image]][github-url] [![dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url] [![github][github-test-image]][github-test-url] [![travis][travis-image]][travis-url]
 
 `@kei-g/chmod` - CLI for changing file permissions works on [Node.js](https://nodejs.org/)
 
@@ -25,7 +25,8 @@ and configure the package.json; for example, `chmod` after transpile by `tsc`
 
 [depencency-image]:https://img.shields.io/librariesio/release/npm/@kei-g/chmod?logo=nodedotjs
 [dependency-url]:https://npmjs.com/package/@kei-g/chmod?activeTab=dependencies
-[github-test-image]:https://img.shields.io/github/workflow/status/kei-g/chmod.js/test/main?label=build%20%26%20test&logo=github
+[github-test-image]:https://github.com/kei-g/chmod.js/actions/workflows/main.yml/badge.svg?branch=main
+[github-test-url]:https://github.com/kei-g/chmod.js/actions/workflows/main.yml
 [github-url]:https://github.com/kei-g/chmod.js
 [license-image]:https://img.shields.io/github/license/kei-g/chmod.js
 [license-url]:https://opensource.org/licenses/BSD-3-Clause
