@@ -76,7 +76,9 @@ name: test
 on:
   pull_request:
     branches:
+      - devel
       - main
+      - release
     paths-ignore:
       - '**.md'
       - '.editorconfig'
@@ -86,7 +88,9 @@ on:
       - 'LICENSE'
   push:
     branches:
+      - devel
       - main
+      - release
     paths-ignore:
       - '**.md'
       - '.editorconfig'
