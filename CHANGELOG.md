@@ -1,5 +1,24 @@
 # Change Logs
 
+## Version 1.0.7
+
+- :technologist: Auto release on create tag event
+- :hammer: Build script is improved
+- :memo: GitHub Actions' canonical badge is used instead of Shields.io
+- :arrow_up: Packages for development are bumped
+  - `@types/chai` is bumped from 4.2.22 to 4.3.0
+  - `@types/node` is bumped from 16.11.11 to 16.11.12
+  - `@typescript-eslint/eslint-plugin` is bumped from 5.5.0 to 5.6.0
+  - `@typescript-eslint/parser` is bumped from 5.5.0 to 5.6.0
+  - `eslint` is bumped from 8.4.0 to 8.4.1
+  - `libfsasync` is bumped from 1.0.5 to 1.0.6
+  - `typescript` is bumped from 4.5.2 to 4.5.3
+- :memo: README.md is updated
+  - contribution section is added
+  - license section is added
+- :pencil2: Typo is fixed
+- :green_heart: Use cache on GitHub CI
+
 ## Version 1.0.6
 
 - :memo: CONTRIBUTING.md is added
