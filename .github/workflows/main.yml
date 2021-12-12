@@ -21,7 +21,6 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          cache: 'npm'
           node-version: ${{ matrix.node }}
       - name: Setup modules
         run: npm install
@@ -50,7 +49,6 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          cache: 'npm'
           node-version: ${{ matrix.node }}
       - name: Setup modules
         run: npm install
