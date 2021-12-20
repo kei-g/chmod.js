@@ -1,6 +1,6 @@
 # chmod.js [![license][license-image]][license-url] [![npm][npm-image]][npm-url]
 
-[![coverage][nyc-cov-image]][github-url] [![dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url] [![github][github-test-image]][github-test-url] [![travis][travis-image]][travis-url]
+[![coverage][nyc-cov-image]][github-url] [![dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url] [![GitHub CI (Test)][github-test-image]][github-test-url] [![travis][travis-image]][travis-url]
 
 `@kei-g/chmod` - CLI for changing file permissions works on [Node.js](https://nodejs.org/)
 
