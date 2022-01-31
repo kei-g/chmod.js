@@ -84,7 +84,6 @@ on:
       - '.editorconfig'
       - '.gitignore'
       - '.npmignore'
-      - '.travis.yml'
       - 'LICENSE'
   push:
     branches:
@@ -96,5 +95,4 @@ on:
       - '.editorconfig'
       - '.gitignore'
       - '.npmignore'
-      - '.travis.yml'
       - 'LICENSE'
