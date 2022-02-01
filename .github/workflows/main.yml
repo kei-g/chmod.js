@@ -22,6 +22,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
+      - name: Upgrade npm
+        run: npm install npm@latest -g
       - name: Setup modules
         run: npm ci
       - id: build
@@ -50,6 +52,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
+      - name: Upgrade npm
+        run: npm install npm@latest -g
       - name: Setup modules
         run: npm ci
       - id: coverage
@@ -80,7 +84,6 @@ on:
       - '.editorconfig'
       - '.gitignore'
       - '.npmignore'
-      - '.travis.yml'
       - 'LICENSE'
   push:
     branches:
@@ -92,5 +95,4 @@ on:
       - '.editorconfig'
       - '.gitignore'
       - '.npmignore'
-      - '.travis.yml'
       - 'LICENSE'
