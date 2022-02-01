@@ -1,6 +1,6 @@
 # chmod.js [![license][license-image]][license-url] [![npm][npm-image]][npm-url]
 
-[![coverage][nyc-cov-image]][github-url] [![dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url] [![GitHub CI (Test)][github-test-image]][github-test-url]
+[![coverage][nyc-cov-image]][github-url] [![dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url] [![GitHub CI (Build)][github-main-build-image]][github-main-build-url] [![GitHub CI (Coverage)][github-main-coverage-image]][github-main-coverage-url]
 
 `@kei-g/chmod` - CLI for changing file permissions works on [Node.js](https://nodejs.org/)
 
@@ -37,8 +37,10 @@ Contributions are welcome! See [Contributor's Guide](https://github.com/kei-g/ch
 
 [depencency-image]:https://img.shields.io/librariesio/release/npm/@kei-g/chmod?logo=nodedotjs
 [dependency-url]:https://npmjs.com/package/@kei-g/chmod?activeTab=dependencies
-[github-test-image]:https://github.com/kei-g/chmod.js/actions/workflows/main.yml/badge.svg?branch=main
-[github-test-url]:https://github.com/kei-g/chmod.js/actions/workflows/main.yml
+[github-main-build-image]:https://github.com/kei-g/chmod.js/actions/workflows/build.yml/badge.svg?branch=main
+[github-main-build-url]:https://github.com/kei-g/chmod.js/actions/workflows/build.yml?query=branch%3Amain
+[github-main-coverage-image]:https://github.com/kei-g/chmod.js/actions/workflows/coverage.yml/badge.svg?branch=main
+[github-main-coverage-url]:https://github.com/kei-g/chmod.js/actions/workflows/coverage.yml?query=branch%3Amain
 [github-url]:https://github.com/kei-g/chmod.js
 [license-image]:https://img.shields.io/github/license/kei-g/chmod.js
 [license-url]:https://opensource.org/licenses/BSD-3-Clause
