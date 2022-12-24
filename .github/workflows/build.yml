@@ -1,5 +1,6 @@
 jobs:
   build:
+    if: github.ref_type == 'branch'
     name: Build on Node.js ${{ matrix.node }}
     outputs:
       result: ${{ steps.build.outputs.result }}
@@ -8,18 +9,18 @@ jobs:
       fail-fast: false
       matrix:
         node:
-          - '12.22.7'
-          - '14.17.6'
-          - '16.13.1'
-          - '17.2.0'
+          - 14
+          - 16
+          - 18
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 1
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
+          cache: 'npm'
           node-version: ${{ matrix.node }}
       - name: Upgrade npm
         run: npm install npm@latest -g
@@ -37,10 +38,6 @@ on:
       - '.npmignore'
       - 'LICENSE'
   push:
-    branches:
-      - devel
-      - main
-      - release
     paths-ignore:
       - '**.md'
       - '.editorconfig'
