@@ -31,7 +31,7 @@ and configure the package.json; for example, `chmod` after transpile by `tsc`
 }
 ```
 
-## Lincense
+## License
 
 The scripts and documentation in this project are released under the [BSD-3-Clause License](https://github.com/kei-g/chmod.js/blob/main/LICENSE)
 
