@@ -1,5 +1,30 @@
 # Change Logs
 
+## Version 1.0.8
+
+- :green_heart: CI chore
+  - `actions/checkout` is bumped from 2 to 3
+  - `actions/setup-node` is bumped from 2 to 3
+  - `actions/upload-artifact` is bumped from 2 to 3
+  - CodeQL is installed
+  - GitHub actions package ecosystem is added on Dependabot
+  - Job to get the commit summary to create release is fixed
+  - Job to publish the package is added
+  - npm is made to be cached on setup Node.js
+- :arrow_up: Packages for development are bumped
+  - `@types/chai` is bumped from 4.3.0 to 4.3.4
+  - `@types/mocha` is bumped from 9.0.0 to 10.0.1
+  - `@types/node` is bumped from 16.11.12 to 18.11.17
+  - `@typescript-eslint/eslint-plugin` is bumped from 5.6.0 to 5.47.0
+  - `@typescript-eslint/parser` is bumped from 5.6.0 to 5.47.0
+  - `chai` is bumped from 4.3.4 to 4.3.7
+  - `esbuild` is bumped from 0.14.2 to 0.16.10
+  - `eslint` is bumped from 8.4.1 to 8.30.0
+  - `libfsasync` is bumped from 1.0.6 to 1.0.8
+  - `mocha` is bumped from 9.1.3 to 10.2.0
+  - `ts-node` is bumped from 10.4.0 to 10.9.1
+  - `typescript` is bumped from 4.5.3 to 4.9.4
+
 ## Version 1.0.7
 
 - :technologist: Auto release on create tag event
