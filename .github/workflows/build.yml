@@ -1,5 +1,6 @@
 jobs:
   build:
+    if: github.ref_type == 'branch'
     name: Build on Node.js ${{ matrix.node }}
     outputs:
       result: ${{ steps.build.outputs.result }}

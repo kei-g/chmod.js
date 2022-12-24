@@ -1,5 +1,6 @@
 jobs:
   coverage:
+    if: github.ref_type == 'branch'
     name: Check code coverages on Node.js ${{ matrix.node }}
     outputs:
       result: ${{ steps.coverage.outputs.result }}
