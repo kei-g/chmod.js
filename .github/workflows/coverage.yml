@@ -43,10 +43,6 @@ on:
       - '.npmignore'
       - 'LICENSE'
   push:
-    branches:
-      - devel
-      - main
-      - release
     paths-ignore:
       - '**.md'
       - '.editorconfig'
