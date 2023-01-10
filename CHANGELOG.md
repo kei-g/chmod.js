@@ -1,5 +1,17 @@
 # Change Logs
 
+## Version 1.0.9
+
+- :arrow_up: Packages for development are bumped
+  - `@types/node` is bumped from 18.11.17 to 18.11.18
+  - `@typescript-eslint/eslint-plugin` is bumped from 5.47.0 to 5.48.1
+  - `@typescript-eslint/parser` is bumped from 5.47.0 to 5.48.1
+  - `esbuild` is bumped from 0.16.10 to 0.16.16
+  - `eslint` is bumped from 8.30.0 to 8.31.0
+  - `libfsasync` is bumped from 1.0.8 to 1.0.10
+- :lock: Security update
+  - `json5` is bumped from 2.2.0 to 2.2.3
+
 ## Version 1.0.8
 
 - :green_heart: CI chore
