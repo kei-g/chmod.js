@@ -10,18 +10,18 @@
     "url": "https://github.com/kei-g/chmod.js/issues"
   },
   "dependencies": {
-    "libfsasync": "^1.0.8"
+    "libfsasync": "^1.0.10"
   },
   "description": "CLI for changing file permissions",
   "devDependencies": {
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
-    "@types/node": "^18.11.17",
-    "@typescript-eslint/eslint-plugin": "^5.47.0",
-    "@typescript-eslint/parser": "^5.47.0",
+    "@types/node": "^18.11.18",
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "^5.48.1",
     "chai": "^4.3.7",
-    "esbuild": "^0.16.10",
-    "eslint": "^8.30.0",
+    "esbuild": "^0.16.16",
+    "eslint": "^8.31.0",
     "mocha": "^10.2.0",
     "npm-run-all": "^4.1.5",
     "nyc": "^15.1.0",
