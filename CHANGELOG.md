@@ -1,5 +1,13 @@
 # Change Logs
 
+## Version 1.0.10
+
+- :arrow_up: Packages for development are bumped
+  - `esbuild` is bumped from 0.16.16 to 0.17.0
+  - `eslint` is bumped from 8.31.0 to 8.32.0
+  - `libfsasync` is bumped from 1.0.10 to 1.0.12
+  - `rimraf` is bumped from 3.0.2 to 4.0.5
+
 ## Version 1.0.9
 
 - :arrow_up: Packages for development are bumped
