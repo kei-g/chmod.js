@@ -1,44 +1,62 @@
 jobs:
-  release:
+  github:
     if: github.ref_type == 'tag'
-    name: Create Release
+    name: Create a release on GitHub
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 1
-      - id: commit_summary
-        name: Get commit summary
+      - name: Create a release
         uses: actions/github-script@v6
         with:
           script: |
-            const child_process = require('node:child_process')
+            const { owner, repo } = context.repo
             const { ref } = context
-            core.setOutput('version', ref.slice(11))
+            const version = ref.slice(11)
+            const child_process = require('node:child_process')
             child_process.execSync(`git fetch --depth 1 origin +${ref}:${ref}`)
             child_process.exec(
               `git for-each-ref --format='%(contents)' ${ref}`,
               {},
-              (err, stdout, stderr) => {
+              async (err, stdout, stderr) => {
                 const i = stdout.search(/Signed\-off\-by\:\ /g)
-                if (i < 0)
-                  core.setFailed('There is no signature')
-                else
-                  core.setOutput('message', stdout.slice(0, i))
+                const message = i < 0 ? stdout : stdout.slice(0, i)
+                const response = await github.request(
+                  `POST /repos/${owner}/${repo}/releases`,
+                  {
+                    body: message,
+                    draft: false,
+                    name: `Version ${version}`,
+                    owner,
+                    prerelease: false,
+                    repo,
+                    tag_name: `v${version}`,
+                    target_commitish: context.sha,
+                  }
+                )
+                switch (response.status) {
+                  case 201:
+                    for (const key in response.data) {
+                      const value = response.data[key]
+                      if (typeof value === 'object')
+                        continue
+                      core.setOutput(key, value)
+                    }
+                    break
+                  case 404:
+                    core.setFailed('Not Found if the discussion category name is invalid')
+                    break
+                  case 422:
+                    core.setFailed('Validation failed, or the endpoint has been spammed')
+                    break
+                  default:
+                    core.setFailed(`Unknown error, ${response.status}`)
+                    break
+                }
               }
             )
-      - env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        name: Create release
-        uses: actions/create-release@v1
-        with:
-          body: |
-            ${{ steps.commit_summary.outputs.message }}
-          draft: false
-          prerelease: false
-          release_name: Version ${{ steps.commit_summary.outputs.version }}
-          tag_name: v${{ steps.commit_summary.outputs.version }}
   npm:
     if: github.ref_type == 'tag'
     name: Publish
