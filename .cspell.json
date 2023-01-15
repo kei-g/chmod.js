@@ -1,0 +1,14 @@
+{
+  "version": "0.2",
+  "words": [
+    "autobuild",
+    "buildx",
+    "codeql",
+    "esbuild",
+    "libfsasync",
+    "linebreak",
+    "outfile",
+    "postbuild",
+    "postpublish"
+  ]
+}
