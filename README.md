@@ -6,11 +6,11 @@
 
 ## CI Status
 
-| | Build | Coverage | CodeQL |
-| ---- | ---- | ---- | ---- |
-| **devel** | [![GitHub CI (Build)][github-devel-build-image]][github-devel-build-url] | [![GitHub CI (Coverage)][github-devel-coverage-image]][github-devel-coverage-url] | [![GitHub CI (CodeQL)][github-devel-codeql-image]][github-devel-codeql-url] |
-| **main** | [![GitHub CI (Build)][github-main-build-image]][github-main-build-url] | [![GitHub CI (Coverage)][github-main-coverage-image]][github-main-coverage-url] | [![GitHub CI (CodeQL)][github-main-codeql-image]][github-main-codeql-url] |
-| **release** | [![GitHub CI (Build)][github-release-build-image]][github-release-build-url] | [![GitHub CI (Coverage)][github-release-coverage-image]][github-release-coverage-url] | [![GitHub CI (CodeQL)][github-release-codeql-image]][github-release-codeql-url] |
+| Workflow Name | Status |
+|:-:|:-:|
+| **Build** | [![GitHub CI (Build)][github-build-image]][github-build-url] |
+| **CodeQL** | [![GitHub CI (CodeQL)][github-codeql-image]][github-codeql-url] |
+| **Coverage** | [![GitHub CI (Coverage)][github-coverage-image]][github-coverage-url] |
 
 ## Installation
 
@@ -45,24 +45,12 @@ Contributions are welcome! See [Contributor's Guide](https://github.com/kei-g/ch
 
 [depencency-image]:https://img.shields.io/librariesio/release/npm/@kei-g/chmod?logo=nodedotjs
 [dependency-url]:https://npmjs.com/package/@kei-g/chmod?activeTab=dependencies
-[github-devel-build-image]:https://github.com/kei-g/chmod.js/actions/workflows/build.yml/badge.svg?query=branch%3Adevel
-[github-devel-build-url]:https://github.com/kei-g/chmod.js/actions/workflows/build.yml?query=branch%3Adevel
-[github-devel-codeql-image]:https://github.com/kei-g/chmod.js/actions/workflows/codeql.yml/badge.svg?query=branch%3Adevel
-[github-devel-codeql-url]:https://github.com/kei-g/chmod.js/actions/workflows/codeql.yml?query=branch%3Adevel
-[github-devel-coverage-image]:https://github.com/kei-g/chmod.js/actions/workflows/coverage.yml/badge.svg?query=branch%3Adevel
-[github-devel-coverage-url]:https://github.com/kei-g/chmod.js/actions/workflows/coverage.yml?query=branch%3Adevel
-[github-main-build-image]:https://github.com/kei-g/chmod.js/actions/workflows/build.yml/badge.svg?query=branch%3Amain
-[github-main-build-url]:https://github.com/kei-g/chmod.js/actions/workflows/build.yml?query=branch%3Amain
-[github-main-codeql-image]:https://github.com/kei-g/chmod.js/actions/workflows/codeql.yml/badge.svg?query=branch%3Amain
-[github-main-codeql-url]:https://github.com/kei-g/chmod.js/actions/workflows/codeql.yml?query=branch%3Amain
-[github-main-coverage-image]:https://github.com/kei-g/chmod.js/actions/workflows/coverage.yml/badge.svg?query=branch%3Amain
-[github-main-coverage-url]:https://github.com/kei-g/chmod.js/actions/workflows/coverage.yml?query=branch%3Amain
-[github-release-build-image]:https://github.com/kei-g/chmod.js/actions/workflows/build.yml/badge.svg?query=branch%3Arelease
-[github-release-build-url]:https://github.com/kei-g/chmod.js/actions/workflows/build.yml?query=branch%3Arelease
-[github-release-codeql-image]:https://github.com/kei-g/chmod.js/actions/workflows/codeql.yml/badge.svg?query=branch%3Arelease
-[github-release-codeql-url]:https://github.com/kei-g/chmod.js/actions/workflows/codeql.yml?query=branch%3Arelease
-[github-release-coverage-image]:https://github.com/kei-g/chmod.js/actions/workflows/coverage.yml/badge.svg?query=branch%3Arelease
-[github-release-coverage-url]:https://github.com/kei-g/chmod.js/actions/workflows/coverage.yml?query=branch%3Arelease
+[github-build-image]:https://github.com/kei-g/chmod.js/actions/workflows/build.yml/badge.svg
+[github-build-url]:https://github.com/kei-g/chmod.js/actions/workflows/build.yml
+[github-codeql-image]:https://github.com/kei-g/chmod.js/actions/workflows/codeql.yml/badge.svg
+[github-codeql-url]:https://github.com/kei-g/chmod.js/actions/workflows/codeql.yml
+[github-coverage-image]:https://github.com/kei-g/chmod.js/actions/workflows/coverage.yml/badge.svg
+[github-coverage-url]:https://github.com/kei-g/chmod.js/actions/workflows/coverage.yml
 [github-url]:https://github.com/kei-g/chmod.js
 [license-image]:https://img.shields.io/github/license/kei-g/chmod.js
 [license-url]:https://opensource.org/licenses/BSD-3-Clause
