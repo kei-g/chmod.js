@@ -37,16 +37,8 @@ jobs:
 name: Coverage
 on:
   pull_request:
-    paths-ignore:
-      - '**.md'
-      - '.editorconfig'
-      - '.gitignore'
-      - '.npmignore'
-      - 'LICENSE'
+    branches:
+      - '**'
   push:
-    paths-ignore:
-      - '**.md'
-      - '.editorconfig'
-      - '.gitignore'
-      - '.npmignore'
-      - 'LICENSE'
+    branches:
+      - '**'
