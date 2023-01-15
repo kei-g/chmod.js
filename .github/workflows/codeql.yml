@@ -32,5 +32,3 @@ on:
   push:
     branches:
       - '**'
-  schedule:
-    - cron: '47 18 * * 5'
