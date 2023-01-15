@@ -61,7 +61,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         name: Publish
         run: npm publish
-name: Create Release
+name: Release
 on:
   create:
     tags:
