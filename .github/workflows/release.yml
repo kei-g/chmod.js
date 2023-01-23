@@ -13,7 +13,7 @@ jobs:
           script: |
             const { owner, repo } = context.repo
             const { ref } = context
-            if (!ref.match(/^refs\/tag\/v[0-9]+(\.[0-9]+)*(\-[0-9A-Za-z]+)*$/g))
+            if (!ref.match(/^refs\/tags\/v[0-9]+(\.[0-9]+)*(\-[0-9A-Za-z]+)*$/g))
               return core.setFailed(`inappropriate ref, ${ref}`)
             const version = ref.slice(11)
             const child_process = require('node:child_process')
