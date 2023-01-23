@@ -4,11 +4,13 @@
     "autobuild",
     "buildx",
     "codeql",
+    "commitish",
     "esbuild",
     "libfsasync",
     "linebreak",
     "outfile",
     "postbuild",
-    "postpublish"
+    "postpublish",
+    "typeof"
   ]
 }
