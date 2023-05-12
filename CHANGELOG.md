@@ -1,5 +1,25 @@
 # Change Logs
 
+## Version 1.0.12
+
+- :green_heart: CI
+  - An external action is now used to create a release on GitHub
+  - Events that occur during branch creation are now ignored to avoid executing 'Release' workflow
+  - Node.js version 20.x is added for CI
+  - The 'github' job on 'Release' workflow now fails if github.ref is inappropriate
+  - The latest Node.js is now used to publish the package
+  - The workflow to automatically merge PRs from Dependabot[bot] is added
+- :arrow_up: Packages for development are bumped
+  - `@types/chai` is bumped from 4.3.4 to 4.3.5
+  - `@types/node` is bumped from 18.11.18 to 20.1.3
+  - `@typescript-eslint/eslint-plugin` is bumped from 5.48.2 to 5.59.5
+  - `@typescript-eslint/parser` is bumped from 5.48.2 to 5.59.5
+  - `esbuild` is bumped from 0.17.4 to 0.17.18
+  - `eslint` is bumped from 8.32.0 to 8.40.0
+  - `libfsasync` is bumped from 1.0.14 to 1.0.16
+  - `rimraf` is bumped from 4.1.1 to 5.0.0
+  - `typescript` is bumped from 4.9.4 to 5.0.4
+
 ## Version 1.0.11
 
 - :arrow_up: Packages for development are bumped
