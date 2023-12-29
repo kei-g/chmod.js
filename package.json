@@ -21,12 +21,12 @@
     "@typescript-eslint/parser": "^6.16.0",
     "chai": "^5.0.0",
     "esbuild": "^0.19.10",
+    "esbuild-register": "^3.5.0",
     "eslint": "^8.56.0",
     "mocha": "^10.2.0",
     "npm-run-all": "^4.1.5",
     "nyc": "^15.1.0",
     "rimraf": "^5.0.5",
-    "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },
   "engines": {
@@ -60,12 +60,12 @@
     "cover": "nyc --check-coverage -r html -r text _mocha",
     "lint": "eslint src/**/*.ts",
     "postbuild": "run-p postbuild:*",
-    "postbuild:chmod": "ts-node src/bin/chmod.ts +x index.js",
+    "postbuild:chmod": "node --require esbuild-register src/bin/chmod.ts +x index.js",
     "postbuild:rimraf": "rimraf bin/",
     "postpublish": "run-s clean",
     "prebuild": "run-p clean lint",
     "prepublishOnly": "run-s build",
-    "start": "ts-node src/bin/chmod.ts",
+    "start": "node --require esbuild-register src/bin/chmod.ts",
     "test": "run-p cover lint"
   },
   "types": "index.d.ts",
