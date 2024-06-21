@@ -24,7 +24,8 @@ jobs:
         run: npm install npm@latest -g
       - name: Setup modules
         run: npm ci
-      - name: Build
+      - id: build
+        name: Build
         run: npm run build
 name: Build
 on:

@@ -24,7 +24,8 @@ jobs:
         run: npm install npm@latest -g
       - name: Setup modules
         run: npm ci
-      - name: Test
+      - id: coverage
+        name: Test
         run: npm test
       - if: ${{ always() }}
         name: Archive code coverage report
