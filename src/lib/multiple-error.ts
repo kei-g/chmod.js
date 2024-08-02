@@ -41,13 +41,15 @@ export class MultipleError extends Error implements Iterable<NodeJS.ErrnoExcepti
   }
 }
 
-export const isNodeJSErrnoException
-  = (value: unknown): value is NodeJS.ErrnoException => {
-    const error = value as NodeJS.ErrnoException
-    return error instanceof Error
-      && typeof error.code === 'string'
-      && typeof error.errno === 'number'
-      && typeof error.message === 'string'
-      && typeof error.path === 'string'
-      && typeof error.syscall === 'string'
+export const isNodeJSErrnoException = (value: unknown): value is NodeJS.ErrnoException => {
+  const error = value as NodeJS.ErrnoException
+  if (value instanceof Error) {
+    const score = +(typeof error.code === 'string') * 16
+      + +(typeof error.errno === 'number') * 8
+      + +(typeof error.message === 'string') * 4
+      + +(typeof error.path === 'string') * 2
+      + +(typeof error.syscall === 'string')
+    return score === 31
   }
+  return false
+}
