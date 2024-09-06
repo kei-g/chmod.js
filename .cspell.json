@@ -1,16 +1,12 @@
 {
+  "allowCompoundWords": true,
+  "caseSensitive": false,
   "version": "0.2",
   "words": [
-    "autobuild",
     "buildx",
     "codeql",
     "commitish",
     "esbuild",
-    "libfsasync",
-    "linebreak",
-    "outfile",
-    "postbuild",
-    "postpublish",
-    "typeof"
+    "libfsasync"
   ]
 }
