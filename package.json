@@ -22,6 +22,7 @@
     "esbuild": "^0.23.1",
     "esbuild-register": "^3.6.0",
     "eslint": "^9.9.1",
+    "globals": "^15.9.0",
     "mocha": "^10.7.3",
     "npm-run-all": "^4.1.5",
     "nyc": "^17.0.0",
