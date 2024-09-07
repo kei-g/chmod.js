@@ -1,6 +1,6 @@
 # chmod.js [![license][license-image]][license-url] [![npm][npm-image]][npm-url]
 
-[![coverage][nyc-cov-image]][github-url] [![dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url]
+[![dependency][depencency-image]][dependency-url] [![maintenance][maintenance-image]][npmsio-url] [![quality][quality-image]][npmsio-url]
 
 `@kei-g/chmod` - CLI for changing file permissions works on [Node.js](https://nodejs.org/)
 
@@ -51,12 +51,10 @@ Contributions are welcome! See [Contributor's Guide](https://github.com/kei-g/ch
 [github-codeql-url]:https://github.com/kei-g/chmod.js/actions/workflows/codeql.yml
 [github-coverage-image]:https://github.com/kei-g/chmod.js/actions/workflows/coverage.yml/badge.svg
 [github-coverage-url]:https://github.com/kei-g/chmod.js/actions/workflows/coverage.yml
-[github-url]:https://github.com/kei-g/chmod.js
 [license-image]:https://img.shields.io/github/license/kei-g/chmod.js
 [license-url]:https://opensource.org/licenses/BSD-3-Clause
 [maintenance-image]:https://img.shields.io/npms-io/maintenance-score/@kei-g/chmod?logo=npm
 [npm-image]:https://img.shields.io/npm/v/@kei-g/chmod.svg?logo=npm
 [npm-url]:https://npmjs.org/package/@kei-g/chmod
 [npmsio-url]:https://npms.io/search?q=%40kei-g%2Fchmod
-[nyc-cov-image]:https://img.shields.io/nycrc/kei-g/chmod.js?config=.nycrc.json&label=coverage&logo=mocha
 [quality-image]:https://img.shields.io/npms-io/quality-score/@kei-g/chmod?logo=npm

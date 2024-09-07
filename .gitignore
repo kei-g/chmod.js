@@ -1,6 +1,5 @@
 **/*.d.ts
 **/*.js
-**/.nyc_output/
 **/.vscode/
 **/bin/
 **/coverage/
