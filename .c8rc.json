@@ -3,6 +3,7 @@
   "branches": 90.24,
   "check-coverage": true,
   "exclude": [
+    "**/*.d.ts",
     "**/*.spec.ts",
     "**/bin/**.ts",
     "**/index.ts"
@@ -12,7 +13,7 @@
   ],
   "functions": 97.43,
   "include": [
-    "**/*.ts"
+    "src/**/*.ts"
   ],
   "lines": 96.98,
   "reporter": [
