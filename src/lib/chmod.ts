@@ -179,7 +179,8 @@ class ParsedRequest {
       const f1 = ParsedRequest.#create(execution, permission, sticky, target)
       const f2 = (umask: number) => ParsedRequest.#process(operand, umask)
       const f = (mode: number, stats: Stats) => f2(f1(stats))(mode)
-      this.modifiers?.push(f) ?? (this.modifiers = [f])
+      if (this.modifiers?.push(f) === undefined)
+        this.modifiers = [f]
     }
   }
 }

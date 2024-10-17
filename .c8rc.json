@@ -15,12 +15,12 @@
   "include": [
     "src/**/*.ts"
   ],
-  "lines": 96.98,
+  "lines": 96.99,
   "reporter": [
     "html",
     "text"
   ],
-  "statements": 96.98,
+  "statements": 96.99,
   "watermarks": {
     "branches": [
       80,
