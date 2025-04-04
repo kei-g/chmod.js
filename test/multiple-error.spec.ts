@@ -2,7 +2,7 @@
  * Import Node.js modules.
  */
 import { describe, it } from 'mocha'
-import { expect } from 'chai'
+import { equal } from 'node:assert'
 
 /**
  * Import library modules.
@@ -17,21 +17,21 @@ import { isNodeJSErrnoException, MultipleError } from '../src'
 describe('MultipleError', () => {
   it('is able to aggregate multiple errors', async () => {
     const err1 = await statAsync('non-existing-file')
-    expect(err1).to.be.an.instanceOf(Error)
-    expect(err1).to.satisfy(isNodeJSErrnoException)
+    equal(err1 instanceof Error, true)
+    equal(isNodeJSErrnoException(err1), true)
     const err2 = await writeFileAsync('/root/foo', 'this is foo\n')
-    expect(err2).to.be.an.instanceOf(Error)
-    expect(err2).to.satisfy(isNodeJSErrnoException)
+    equal(err2 instanceof Error, true)
+    equal(isNodeJSErrnoException(err2), true)
     const err3 = MultipleError.from([err1, err2])
-    expect(err3).to.be.an.instanceOf(MultipleError)
+    equal(err3 instanceof MultipleError, true)
     if (isNodeJSErrnoException(err3)) {
-      expect(err3.code).to.be.eq('ENOENT')
-      expect(err3.errno).to.be.eq(-2)
-      expect(err3.path).to.be.eq('non-existing-file')
-      expect(err3.syscall).to.be.eq('stat')
+      equal(err3.code, 'ENOENT')
+      equal(err3.errno, -2)
+      equal(err3.path, 'non-existing-file')
+      equal(err3.syscall, 'stat')
       for (const err of err3)
-        expect(err).to.satisfy(isNodeJSErrnoException)
-      expect(`${err3}`).to.be.eq(`${err1}\n\n${err2}`)
+        equal(isNodeJSErrnoException(err), true)
+      equal(`${err3}`, `${err1}\n\n${err2}`)
     }
   })
 })
