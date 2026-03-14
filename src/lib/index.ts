@@ -1,2 +1,2 @@
-export * from './chmod'
-export * from './multiple-error'
+export * from './chmod.ts'
+export * from './multiple-error.ts'

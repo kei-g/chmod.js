@@ -1,3 +1,3 @@
 export const name = 'chmod'
 
-export * from './lib'
+export * from './lib/index.ts'

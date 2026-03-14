@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { Parser } from '../'
+import { Parser } from '../index.ts'
 import { realpathAsync } from 'libfsasync'
 
 async function main(): Promise<void> {

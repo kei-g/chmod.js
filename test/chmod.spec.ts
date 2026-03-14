@@ -1,4 +1,4 @@
-import { Parser } from '../src'
+import { Parser } from '../src/index.ts'
 import { describe, it } from 'mocha'
 import { equal } from 'node:assert'
 import { mkdirAsync, rmdirAsync, statAsync, unlinkAsync, writeFileAsync } from 'libfsasync'
@@ -6,7 +6,7 @@ import { mkdirAsync, rmdirAsync, statAsync, unlinkAsync, writeFileAsync } from '
 describe('chmod - failure cases', () => {
   it('non-existing-file', async () => {
     const parser = new Parser()
-    let caught: Error | undefined = undefined
+    let caught: Error | undefined 
     parser.on('error', (reason: Error) => caught = reason)
     const executor = parser.parse('741', 'non-existing-file')
     equal(caught, undefined)
@@ -25,7 +25,7 @@ describe('chmod - successful cases', () => {
       await writeFileAsync(`tmp1/${name}`, name)
     await mkdirAsync('tmp1/baz')
     const parser = new Parser()
-    let caught: Error | undefined = undefined
+    let caught: Error | undefined 
     parser.on('error', (reason: Error) => caught = reason)
     const executor = parser.parse('+x', 'tmp1/foo', 'tmp1/bar', 'tmp1/baz')
     equal(caught, undefined)
@@ -49,7 +49,7 @@ describe('chmod - successful cases', () => {
     await mkdirAsync('tmp2/foo/bar')
     await writeFileAsync('tmp2/foo/bar/baz', 'this is baz\n')
     const parser = new Parser()
-    let caught: Error | undefined = undefined
+    let caught: Error | undefined 
     parser.on('error', (reason: Error) => caught = reason)
     const executor = parser.parse('-R', '+X', 'tmp2')
     const success = await executor.executeAsync()
@@ -72,7 +72,7 @@ describe('chmod - successful cases', () => {
     await mkdirAsync('tmp3')
     await writeFileAsync('tmp3/foo', '#!/bin/sh\necho this is foo\n')
     const parser = new Parser()
-    let caught: Error | undefined = undefined
+    let caught: Error | undefined 
     parser.on('error', (reason: Error) => caught = reason)
     const executor = parser.parse('a+wx', 'tmp3/foo')
     equal(caught, undefined)
@@ -92,7 +92,7 @@ describe('chmod - successful cases', () => {
     await mkdirAsync('tmp4')
     await writeFileAsync('tmp4/foo', 'this is foo\n')
     const parser = new Parser()
-    let caught: Error | undefined = undefined
+    let caught: Error | undefined 
     parser.on('error', (reason: Error) => caught = reason)
     const executor = parser.parse('u-r,g+w,o-x', 'tmp4/foo')
     equal(caught, undefined)
@@ -112,7 +112,7 @@ describe('chmod - successful cases', () => {
     await mkdirAsync('tmp5')
     await writeFileAsync('tmp5/foo', 'this is foo\n')
     const parser = new Parser()
-    let caught: Error | undefined = undefined
+    let caught: Error | undefined 
     parser.on('error', (reason: Error) => caught = reason)
     const executor = parser.parse('o-r,o+w,o+x', 'tmp5/foo')
     equal(caught, undefined)

@@ -12,7 +12,7 @@ import { statAsync, writeFileAsync } from 'libfsasync'
 /**
  * Import local modules.
  */
-import { isNodeJSErrnoException, MultipleError } from '../src'
+import { isNodeJSErrnoException, MultipleError } from '../src/index.ts'
 
 describe('MultipleError', () => {
   it('is able to aggregate multiple errors', async () => {

@@ -1,9 +1,9 @@
 /**
  * Import Node.js modules.
  */
-import type { Dirent, Stats } from 'fs'
-import { EventEmitter } from 'stream'
-import { readdir } from 'fs/promises'
+import type { Dirent, Stats } from 'node:fs'
+import { EventEmitter } from 'node:stream'
+import { readdir } from 'node:fs/promises'
 
 /**
  * Import library modules.
@@ -13,8 +13,8 @@ import { chmodAsync, lstatAsync } from 'libfsasync'
 /**
  * Import local modules.
  */
-import { MultipleError } from '.'
-import { join } from 'path'
+import { MultipleError } from './index.ts'
+import { join } from 'node:path'
 
 export interface AsyncExecutable {
   executeAsync(): Promise<NodeJS.ErrnoException | true>
