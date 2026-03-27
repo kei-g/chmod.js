@@ -52,7 +52,7 @@
   "scripts": {
     "build": "run-p build:*",
     "build:bundle": "esbuild src/bin/chmod.ts --bundle --external:libfsasync --minify --outfile=index.js --platform=node --target=ES2022",
-    "build:tsc": "tsc",
+    "build:tsc": "tsc && tar -C types/src -cf - . | tar -xf - && rm -fr types",
     "clean": "rimraf bin/ coverage/ index.d.ts index.js lib/",
     "cover": "c8 --check-coverage _mocha",
     "lint": "biome lint --write",

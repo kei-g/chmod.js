@@ -3,13 +3,14 @@
     "allowImportingTsExtensions": true,
     "alwaysStrict": true,
     "declaration": true,
-    "declarationDir": ".",
+    "declarationDir": "./types",
     "downlevelIteration": true,
     "emitBOM": false,
     "emitDeclarationOnly": true,
     "emitDecoratorMetadata": false,
     "esModuleInterop": true,
     "experimentalDecorators": false,
+    "ignoreDeprecations": "6.0",
     "lib": [
       "ES2021",
     ],
@@ -19,11 +20,12 @@
     "noImplicitAny": true,
     "pretty": true,
     "removeComments": false,
+    "rootDir": ".",
     "strict": true,
     "strictNullChecks": false,
     "target": "ES2022",
-    "typeRoots": [
-      "node_modules/@types",
+    "types": [
+      "node",
     ],
   },
   "exclude": [
