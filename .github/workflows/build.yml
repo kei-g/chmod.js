@@ -4,12 +4,6 @@ jobs:
     outputs:
       result: ${{ steps.build.outputs.result }}
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        node:
-          - 20
-          - 22
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -27,6 +21,13 @@ jobs:
       - id: build
         name: Build
         run: npm run build
+    strategy:
+      fail-fast: false
+      matrix:
+        node:
+          - 22
+          - 24
+          - 26
 name: Build
 on:
   push:
