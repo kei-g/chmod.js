@@ -8,10 +8,13 @@ export class MultipleError extends Error implements Iterable<NodeJS.ErrnoExcepti
     return error.message
   }
 
+  private readonly errors: NodeJS.ErrnoException[]
+
   private constructor(
-    private readonly errors: NodeJS.ErrnoException[]
+    errors: NodeJS.ErrnoException[]
   ) {
     super(errors.map(MultipleError.getMessage).join('\n'))
+    this.errors = errors
   }
 
   get code(): string {

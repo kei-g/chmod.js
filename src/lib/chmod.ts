@@ -2,13 +2,13 @@
  * Import Node.js modules.
  */
 import type { Dirent, Stats } from 'node:fs'
-import { EventEmitter } from 'node:stream'
+import { EventEmitter } from 'node:events'
 import { readdir } from 'node:fs/promises'
 
 /**
  * Import library modules.
  */
-import { chmodAsync, lstatAsync } from 'libfsasync'
+import { chmod, lstat } from 'node:fs/promises'
 
 /**
  * Import local modules.
@@ -216,7 +216,7 @@ const bind = (
 const chmodForDirent = async (modifiers: Modifier[], path: string) => (dir: Dirent) => chmodRecursiveAsync(modifiers, join(path, dir.name))
 
 const chmodRecursiveAsync = async (modifiers: Modifier[], path: string, recursive?: true): Promise<NodeJS.ErrnoException | true> => {
-  const stats = await lstatAsync(path)
+  const stats = await lstat(path).catch(error => error)
   if (stats instanceof Error)
     return stats
   const score = +stats.isDirectory() * 2 + +recursive
@@ -228,13 +228,13 @@ const chmodRecursiveAsync = async (modifiers: Modifier[], path: string, recursiv
     if (error)
       return error
   }
-  return await chmodAsync(
+  return await chmod(
     path,
     modifiers.reduce(
       (previousMode: number, modifier: Modifier) => modifier(previousMode, stats),
       stats.mode,
     )
-  )
+  ).then(() => true).catch(error => error)
 }
 
 const coalesce = <T, U>(arg1: T | null | undefined, arg2: U) => arg1 ?? arg2

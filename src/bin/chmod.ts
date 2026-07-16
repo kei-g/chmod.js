@@ -1,18 +1,18 @@
 #!/usr/bin/env node
 
 import { Parser } from '../index.ts'
-import { realpathAsync } from 'libfsasync'
+import { realpath } from 'node:fs/promises'
 
 async function main(): Promise<void> {
   const realpaths = await Promise.all(
     process.argv.map(
       (argv: string) =>
-        realpathAsync(argv)
+        realpath(argv).catch(error => error)
     )
   )
   let i = realpaths.findIndex(
     (argv: NodeJS.ErrnoException | string) =>
-      argv === __filename
+      argv === import.meta.filename
   )
   if (i++ < 0)
     process.exit(1)

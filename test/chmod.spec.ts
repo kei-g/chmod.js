@@ -1,12 +1,12 @@
 import { Parser } from '../src/index.ts'
-import { describe, it } from 'mocha'
+import { describe, it } from 'node:test'
 import { equal } from 'node:assert'
-import { mkdirAsync, rmdirAsync, statAsync, unlinkAsync, writeFileAsync } from 'libfsasync'
+import { mkdir, rmdir, stat, unlink, writeFile } from 'node:fs/promises'
 
 describe('chmod - failure cases', () => {
   it('non-existing-file', async () => {
     const parser = new Parser()
-    let caught: Error | undefined 
+    let caught: Error | undefined
     parser.on('error', (reason: Error) => caught = reason)
     const executor = parser.parse('741', 'non-existing-file')
     equal(caught, undefined)
@@ -20,12 +20,12 @@ describe('chmod - failure cases', () => {
 
 describe('chmod - successful cases', () => {
   it('+x', async () => {
-    await mkdirAsync('tmp1')
+    await mkdir('tmp1')
     for (const name of ['foo', 'bar'])
-      await writeFileAsync(`tmp1/${name}`, name)
-    await mkdirAsync('tmp1/baz')
+      await writeFile(`tmp1/${name}`, name)
+    await mkdir('tmp1/baz')
     const parser = new Parser()
-    let caught: Error | undefined 
+    let caught: Error | undefined
     parser.on('error', (reason: Error) => caught = reason)
     const executor = parser.parse('+x', 'tmp1/foo', 'tmp1/bar', 'tmp1/baz')
     equal(caught, undefined)
@@ -34,45 +34,45 @@ describe('chmod - successful cases', () => {
     equal(caught, undefined)
     equal(err instanceof Error, false)
     equal(err, true)
-    const stats = await statAsync('tmp1/foo')
+    const stats = await stat('tmp1/foo')
     equal(stats instanceof Error, false)
     if (!(stats instanceof Error))
       equal(stats.mode, 0o100755)
-    await rmdirAsync('tmp1/baz')
+    await rmdir('tmp1/baz')
     for (const name of ['foo', 'bar'])
-      await unlinkAsync(`tmp1/${name}`)
-    await rmdirAsync('tmp1')
+      await unlink(`tmp1/${name}`)
+    await rmdir('tmp1')
   })
   it('-R +X', async () => {
-    await mkdirAsync('tmp2')
-    await mkdirAsync('tmp2/foo')
-    await mkdirAsync('tmp2/foo/bar')
-    await writeFileAsync('tmp2/foo/bar/baz', 'this is baz\n')
+    await mkdir('tmp2')
+    await mkdir('tmp2/foo')
+    await mkdir('tmp2/foo/bar')
+    await writeFile('tmp2/foo/bar/baz', 'this is baz\n')
     const parser = new Parser()
-    let caught: Error | undefined 
+    let caught: Error | undefined
     parser.on('error', (reason: Error) => caught = reason)
     const executor = parser.parse('-R', '+X', 'tmp2')
     const success = await executor.executeAsync()
     equal(caught, undefined)
     equal(success, true)
-    const bar = await statAsync('tmp2/foo/bar')
+    const bar = await stat('tmp2/foo/bar')
     equal(bar instanceof Error, false)
-    const baz = await statAsync('tmp2/foo/bar/baz')
+    const baz = await stat('tmp2/foo/bar/baz')
     equal(baz instanceof Error, false)
     if (!(bar instanceof Error || baz instanceof Error)) {
       equal(bar.mode, 0o040755)
       equal(baz.mode, 0o100644)
     }
-    await unlinkAsync('tmp2/foo/bar/baz')
-    await rmdirAsync('tmp2/foo/bar')
-    await rmdirAsync('tmp2/foo')
-    await rmdirAsync('tmp2')
+    await unlink('tmp2/foo/bar/baz')
+    await rmdir('tmp2/foo/bar')
+    await rmdir('tmp2/foo')
+    await rmdir('tmp2')
   })
   it('a+wx', async () => {
-    await mkdirAsync('tmp3')
-    await writeFileAsync('tmp3/foo', '#!/bin/sh\necho this is foo\n')
+    await mkdir('tmp3')
+    await writeFile('tmp3/foo', '#!/bin/sh\necho this is foo\n')
     const parser = new Parser()
-    let caught: Error | undefined 
+    let caught: Error | undefined
     parser.on('error', (reason: Error) => caught = reason)
     const executor = parser.parse('a+wx', 'tmp3/foo')
     equal(caught, undefined)
@@ -81,18 +81,18 @@ describe('chmod - successful cases', () => {
     equal(caught, undefined)
     equal(err instanceof Error, false)
     equal(err, true)
-    const stats = await statAsync('tmp3/foo')
+    const stats = await stat('tmp3/foo')
     equal(stats instanceof Error, false)
     if (!(stats instanceof Error))
       equal(stats.mode, 0o100777)
-    await unlinkAsync('tmp3/foo')
-    await rmdirAsync('tmp3')
+    await unlink('tmp3/foo')
+    await rmdir('tmp3')
   })
   it('u-r,g+w,o-x', async () => {
-    await mkdirAsync('tmp4')
-    await writeFileAsync('tmp4/foo', 'this is foo\n')
+    await mkdir('tmp4')
+    await writeFile('tmp4/foo', 'this is foo\n')
     const parser = new Parser()
-    let caught: Error | undefined 
+    let caught: Error | undefined
     parser.on('error', (reason: Error) => caught = reason)
     const executor = parser.parse('u-r,g+w,o-x', 'tmp4/foo')
     equal(caught, undefined)
@@ -101,18 +101,18 @@ describe('chmod - successful cases', () => {
     equal(caught, undefined)
     equal(err instanceof Error, false)
     equal(err, true)
-    const stats = await statAsync('tmp4/foo')
+    const stats = await stat('tmp4/foo')
     equal(stats instanceof Error, false)
     if (!(stats instanceof Error))
       equal(stats.mode, 0o100264)
-    await unlinkAsync('tmp4/foo')
-    await rmdirAsync('tmp4')
+    await unlink('tmp4/foo')
+    await rmdir('tmp4')
   })
   it('o-r,o+w,o+x', async () => {
-    await mkdirAsync('tmp5')
-    await writeFileAsync('tmp5/foo', 'this is foo\n')
+    await mkdir('tmp5')
+    await writeFile('tmp5/foo', 'this is foo\n')
     const parser = new Parser()
-    let caught: Error | undefined 
+    let caught: Error | undefined
     parser.on('error', (reason: Error) => caught = reason)
     const executor = parser.parse('o-r,o+w,o+x', 'tmp5/foo')
     equal(caught, undefined)
@@ -121,11 +121,11 @@ describe('chmod - successful cases', () => {
     equal(caught, undefined)
     equal(err instanceof Error, false)
     equal(err, true)
-    const stats = await statAsync('tmp5/foo')
+    const stats = await stat('tmp5/foo')
     equal(stats instanceof Error, false)
     if (!(stats instanceof Error))
       equal(stats.mode, 0o100643)
-    await unlinkAsync('tmp5/foo')
-    await rmdirAsync('tmp5')
+    await unlink('tmp5/foo')
+    await rmdir('tmp5')
   })
 })
