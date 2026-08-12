@@ -50,7 +50,7 @@
   "scripts": {
     "build": "npm-run-all2 --parallel build:*",
     "build:bundle": "esbuild src/bin/chmod.ts --bundle --format=esm --minify --outfile=index.js --platform=node --target=ES2022",
-    "build:tsc": "tsc && tar -C types/src -cf - . | tar -xf - && rm -fr types",
+    "build:tsc": "tsc",
     "clean": "rimraf bin/ coverage/ index.d.ts index.js lib/",
     "cover": "c8 node --test",
     "lint": "biome lint --write",
